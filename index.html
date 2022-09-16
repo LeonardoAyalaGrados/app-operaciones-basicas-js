@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <title>App-calculadora-JS</title>
+</head>
+<br>
+
+<body onload="cargarPagina()">
+    <script>
+        function cargarPagina() {
+            alert("Cargando la página, presione aceptar");
+        }
+    </script>
+
+    <h1 class="text-center">Mi App Calculadora en JavaScript</h1>
+    <br>
+    <p class="text-center">Esta es una app basica donde aplicamos pequeños conceptos aprendidos en el curso de J.S.</p>
+    <div class="cuadrado">
+        <form class="form-group">
+            <div id="id_div" class="text-center">
+                <div class="mb-3">
+                    <label>Ingrese primero numero </label>
+                    <br>
+                    <input type="number" id="valorUno" class="form-control-lg" onfocus="establecerColorCampo(this)" onblur="revertirColorCampo(this)" required="debe ingresar un valor">
+                    <br>
+                </div>
+                <div class="mb-3">
+                    <label>Ingrese segundo numero </label>
+                    <br>
+                    <input type="number" id="valorDos" class="form-control-lg" onfocus="establecerColorCampo(this)" onblur="revertirColorCampo(this)" required="debe ingresar un valor">
+                    <br>
+                </div>
+                <script>
+                    function establecerColorCampo(dato) {
+                        dato.style.background = 'gray';
+                    }
+
+                    function revertirColorCampo(dato) {
+                        dato.style.background = 'white';
+                    }
+                </script>
+            </div>
+        </form>
+    </div>
+    <br>
+    <div class="text-center">
+        <input type="submit" class="btn btn-primary" value="sumar" onclick="sumar()">
+        <input type="submit" class="btn btn-secundary" value="restar" onclick="restar()">
+        <input type="submit" class="btn btn-warning" value="multriplicar" onclick="multiplicar()">
+        <input type="button" class="btn btn-info" value="dividir" onclick="dividir()">
+    </div>
+
+    <br>
+    <div>
+        <h3 class="text-center" id="resultado"></h3>
+    </div>
+    <br>
+    <script>
+        //proceso suma
+        function sumar() {
+            var numeroUno = document.getElementById('valorUno');
+            var numeroDos = document.getElementById('valorDos');
+            var resultado = parseInt(numeroUno.value) + parseInt(numeroDos.value);
+            if (isNaN(resultado)) {
+                document.getElementById('resultado').innerHTML = 'Los campos no tienen numeros';
+            } else {
+
+                document.getElementById('resultado').innerHTML = "El resultado : " + resultado;
+                console.log("LLEGO" + resultado);
+            }
+        }
+        // restar
+        function restar() {
+            var numeroUno = document.getElementById('valorUno');
+            var numeroDos = document.getElementById('valorDos');
+            var resultado = parseFloat(numeroUno.value) - parseFloat(numeroDos.value);
+            if (isNaN(resultado)) {
+                document.getElementById('resultado').innerHTML = 'Los campos no tienen numeros';
+            } else {
+                document.getElementById('resultado').innerHTML = "El resultado : " + resultado;
+                console.log("LLEGO" + resultado);
+            }
+
+        }
+        // restar
+        function multiplicar() {
+            var numeroUno = document.getElementById('valorUno');
+            var numeroDos = document.getElementById('valorDos');
+            var resultado = parseFloat(numeroUno.value) * parseFloat(numeroDos.value);
+            if (isNaN(resultado)) {
+                document.getElementById('resultado').innerHTML = 'Los campos no tienen numeros';
+            } else {
+                document.getElementById('resultado').innerHTML = "El resultado : " + resultado;
+                console.log("LLEGO" + resultado);
+            }
+        }
+
+        // restar
+        function dividir() {
+            var numeroUno = document.getElementById('valorUno');
+            var numeroDos = document.getElementById('valorDos');
+            var resultado = parseFloat(numeroUno.value) / parseFloat(numeroDos.value);
+            if (isNaN(resultado)) {
+                document.getElementById('resultado').innerHTML = 'Los campos no tienen numeros';
+            } else {
+                document.getElementById('resultado').innerHTML = "El resultado : " + resultado;
+                console.log("LLEGO" + resultado);
+            }
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
+
+</html>
